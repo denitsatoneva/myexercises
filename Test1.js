@@ -1,7 +1,7 @@
 console.log('hello');
 
 // 1. numbers 1-10
-for (let i = 0; i < 11; i++) {
+for (let i = 0; i <= 10; i++) {
     console.log(i)
   }
 
@@ -53,30 +53,28 @@ function celsiusToFahrenheit(celsius)
 {
   return celsius * 1.8 + 32;
 }
-let cf = celsiusToFahrenheit(25);
-console.log('from Celsius to Fahrenheit: ', cf);
+console.log('from Celsius to Fahrenheit: ', celsiusToFahrenheit(25));
 
 // 9. function - from  Fahrenheit to Celsius
 function fahrenheitToCelsius(fahrenheit) 
 {
     return (fahrenheit - 32) / 1.8;
 }
-let fc = fahrenheitToCelsius(77);
-console.log( 'from Fahrenheit to Celsius: ', fc);
+console.log( 'from Fahrenheit to Celsius: ', fahrenheitToCelsius(77));
 
 // 10. sum of numbers in an array of numbers
-const array = [1, 2, 4, 10];
-const sumNums = array.reduce((accumulator, currentValue) => {
+let array = [1, 2, 4, 10];
+let sumNums = array.reduce((accumulator, currentValue) => {
   return accumulator + currentValue;
 })
-console.log(sumNums);
+console.log('Sum of numbers in array:',sumNums);
 
 // 11. average of numbers in an array of numbers
 const array1 = [1, 2, 4, 10];
 const sumOfNums = array1.reduce((accumulator, currentValue) => {
   return (accumulator + currentValue);
 })
-console.log(sumNums/array1.length);
+console.log('Average:',sumNums/array1.length);
 
 // 12. function, that receives an array of num as argument and returns an array containing only the positive num
 let ar = [-2, 3, 5, -9, -10, 4, 8];
@@ -138,46 +136,46 @@ while (value) {
 console.log(sumOfDigits);
 
 // 18. first 100 prime numbers
-/*function isPrimeNumber(num) {
-  
-  if(num < 2) { return false; }
+function isPrimeNumber(num) {
   for (let i = 2; i < num; i++) {
-      if(num % i === 0){ return false; }
+      if(num % i === 0){ 
+        return false; }
   }
   return true;
 }
 const primeNum = [];
-let x = 0;
+let z = 0;
 while(primeNum.length < 100){
-  if(isPrimeNumber(x)) { primeNum.push(x); }
-  x++;
+  if(isPrimeNumber(z)) { 
+    primeNum.push(z); 
+  }
+  z++;
 }
 console.log(primeNum);
-*/
+
 
 // 19. function that will return in array the first "p" prime numbers greater than "n"
-/*function isPrimeNumber(num) {
-  
-  if(num < 2) { return false; }
+/*function isPrimeNumber2(num) {
   for (let i = 2; i < num; i++) {
       if(num % i === 0){ return false; }
   }
   return true;
 }
-const primeNum = [];
-let x, z=45;
-for(x=0; primeNum.length < 100 && x>z; x++){
-  if(isPrimeNumber(x)) { primeNum.push(x); 
-  
-}*/
+const primeNum2 = [];
+let x, n=300;
+for(x=0; x>n && primeNum2.length < 100 ; x++){
+  if(isPrimeNumber2(x)) { primeNum2.push(x); }
+}
+console.log(primeNum2);*/
  
 // 20. rotate an array to the left 1 position
+console.log('original array: [1,2,3,4,5]')
 let arr3 = [1,2,3,4,5];
-let rotateLeft = function(nums) {
-  nums.push(nums.shift());
-  return nums;
+let rotateLeft = function(num) {
+  num.push(num.shift());
+  return num;
 }
-console.log(rotateLeft(arr3));
+console.log('rotated 1 pos. to the left: ',rotateLeft(arr3));
 
 // 21. rotate an array to the right 1 position
 let arr2 = [1,2,3,4,5];
@@ -185,7 +183,7 @@ let rotateRight = function(nums) {
   nums.unshift(nums.pop());
   return nums;
 }
-console.log(rotateRight(arr2));
+console.log('rotated 1 pos. to the right: ',rotateRight(arr2));
 
 // 22. reverse an array
 const fruits = ['apple', 'kiwi', 'banana'];
@@ -226,19 +224,15 @@ console.log(a[i] + " ");
 //     the first array but not in the second
 const a =  [1, 8,'yes', 2, 5,'no', 6];
 const b = [ 4,'no', 2, 6, 7]; 
-let n = a.length; 
-let m = b.length; 
-for (let i = 0; i < n; i++) { 
+for (let i = 0; i < a.length; i++) { 
   let j;
-  for (j = 0; j < m; j++){
+  for (j = 0; j < b.length; j++){
     if (a[i] === b[j]) 
     break; 
   }
-if (j === m) 
+if (j === b.length) 
 console.log(a[i] + " "); 
 } 
-
-// 27. function that will receive an array of numbers as argument and will retun a new array with distinct elements
 
 // 28. calculate the sum of first 100 prime numbers and return them in an array
 /* function isPrimeNumber(num) {
@@ -262,7 +256,6 @@ const sumPr = primeNum.reduce((acc, curVal) => {
 console.log('Sum of first 100 prime numbers:' + sumPr); */
 
 // 29. print the distance between the first 100 prime numbers
-distance(100);
 function isPrime(num){
   let isPrime;
   for(let i = 2; i <= Math.sqrt(num); i++){
@@ -287,6 +280,7 @@ function distance(n)
     i++;
   }
 }
+distance(100);
 
 // 30. function that will add two positive num of indefinite size. The num are received as strings and the
 //     result should be also provided as string
@@ -295,7 +289,7 @@ function distance(n)
 function countWords(str) {
   return str.split(' ').length;
 }
-console.log(countWords('Bulgaria is an incredible country with very beautiful nature.'));
+console.log('Number of words: ', countWords('Bulgaria is an incredible country with very beautiful nature.'));
    // 2ri variant:
 /*function wordCount(str) {
   let foundSpace = 0;
@@ -309,8 +303,8 @@ console.log(wordCount('Random words tralala ohh yes' )); */
 
 //32. function that will capitalise, the first letter of each word in a text
 function titleCase(str) {
-  var splitStr = str.toLowerCase().split(' ');
-  for (var i = 0; i < splitStr.length; i++) {
+  let splitStr = str.toLowerCase().split(' ');
+  for (let i = 0; i < splitStr.length; i++) {
       splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
   }
   return splitStr.join(' '); 
@@ -340,6 +334,7 @@ let wordsArray = getWords('put this words in an array');
 console.log(wordsArray);
 
 //35. function to convert a CSV text to a bi- dimensional array. 
+//    Comma-separated values
 
 //36. function that converts a string to an array of characters
 function stringToCharacters(str3){
@@ -349,22 +344,23 @@ console.log(stringToCharacters('word'));
 
 //37. function that will convert a string in an array containing the ASCII code of each character 
 /*function stringToASCII(str4){
-  return str4.fromCharCode(0);
+  for(let i=0;i<str4.length; i++){
+    return String.fromCharCode(str4[i]);
+  }
 }
-console.log(stringToASCII('monika')); /*
+console.log('string to ASCII: ', stringToASCII('monika')); */
 
 //38. function that will convert an array containing ASCII codes in string
 /*function asciToStirng(str5){
   return str5.fromCharCode(109, 111, 110, 105, 107, 97 )
 } 
 console.log(str5) // '@' */
+// var asciiKeys = [109, 111, 110, 105, 107, 97];
+// let str = new TextDecoder().decode(Uint8Array.from(asciiKeys));
+// console.log('ASCII to string: ', str);
 
 //39. implement the Caesar cypher
-
 //40. implement the bubble sort algorithm for an array of numbers
-
-
-
 
 //41. function to calculate the distance between two points defined by their x,y  coordinates
 function calculateDistanceBetweenPoints(x1, y1, x2, y2) {       
@@ -387,12 +383,12 @@ function circle(x1, y1, x2, y2, r1, r2)
   }
 let t = circle(-10, 8, 14, -24, 30, 10); 
 if (t === 1) 
-console.log( "Circles touch each other."); 
+console.log(t, "->Circles touch each other."); 
 else if (t < 0) 
-console.log( "Circles do not touch each other." ); 
+console.log(t, "->Circles do not touch each other." ); 
 else
-console.log( "Circles intersect with each other."); 
-console.log(t);
+console.log(t, "->Circles intersect with each other."); 
+
 
 //43. function that will receive a bi - dimensional array as argument and a number, and we will extract as a undimensional array
 //    the column specified by the number
@@ -411,7 +407,7 @@ function binaryToDecimal(num){
   var digit = parseInt(num, 2);
   return digit;
 }
-console.log(binaryToDecimal('10011'));
+console.log('binary to decimal',binaryToDecimal('10001'));
 
 //45. function to calculate the sum of all numbers in jagged array (contains numbers or other arrays of numbers on an unlimited
 //    number of levels)
@@ -454,7 +450,7 @@ function longestWord(string) {
   }
   return word;
 }
-console.log(longestWord('I am so done with this exercises'));
+console.log('longest word: ',longestWord('The weather today is synny. I like it!'));
 
 //49. shuffle an array of strings
 function shuffle(array) {
